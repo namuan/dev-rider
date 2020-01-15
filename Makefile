@@ -18,6 +18,9 @@ venv: ## Load virtualenv
 clean: ## Clean package
 	rm -rf build dist
 
+lint: ## Runs Flake8 for linting
+	flake8 app
+
 reset: ## Re-initiates virtualenv
 	rm -rf venv
 	python3 -m venv venv
