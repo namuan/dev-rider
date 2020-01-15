@@ -2,6 +2,8 @@
 
 block_cipher = None
 
+import app
+
 a = Analysis(['bin/app'],
              pathex=['.'],
              binaries=None,
@@ -33,6 +35,11 @@ coll = COLLECT(exe,
                name='DevRider')
 
 app = BUNDLE(coll,
-             name='DevRider.app',
+             name='{}.app'.format(app.__appname__),
              icon='resources/icons/app.icns',
-             bundle_identifier=None)
+             bundle_identifier=None,
+             info_plist={
+                'CFBundleShortVersionString': app.__version__,
+                'NSHighResolutionCapable': 'True'
+                }
+             )
