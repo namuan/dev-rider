@@ -30,7 +30,7 @@ deps: ## Reinstalls dependencies
 	./venv/bin/python3 -m pip install -r requirements/dev.txt
 
 package: clean ## Rebuilds venv and packages app
-	./venv/bin/python3 setup.py bdist_app
+	export PYTHONPATH=`pwd`:$PYTHONPATH && ./venv/bin/python3 setup.py bdist_app
 
 docs: clean ## Build docs
 	./venv/bin/python3 setup.py build_docs
