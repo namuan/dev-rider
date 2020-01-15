@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/">
-        <file>style.qss</file>
+        <file>fonts/JetBrainsMono-Regular.ttf</file>
+        <file>themes/light.qss</file>
+        <file>themes/dark.qss</file>
         <file>icons/app.icns</file>
         <file>icons/app.ico</file>
         <file>icons/app.svg</file>

@@ -23,6 +23,9 @@ reset: ## Re-initiates virtualenv
 	python3 -m venv venv
 	./venv/bin/python3 -m pip install -r requirements/dev.txt
 
+deps: ## Reinstalls dependencies
+	./venv/bin/python3 -m pip install -r requirements/dev.txt
+
 package: clean ## Rebuilds venv and packages app
 	./venv/bin/python3 setup.py bdist_app
 

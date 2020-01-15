@@ -1,25 +1,20 @@
 import sys
-
-from PyQt5.QtGui import QFontDatabase, QFont, QIcon
-from PyQt5.QtCore import QFile, QTextStream
 from PyQt5.QtWidgets import QApplication
 
+from app import __version__, __appname__, __desktopid__
+from app.themes import theme_provider
 from app.views.MainWindow import MainWindow
 
 
 def main():
     app = QApplication(sys.argv)
+    app.setApplicationVersion(__version__)
+    app.setApplicationName(__appname__)
+    app.setDesktopFileName(__desktopid__)
 
-    app.setWindowIcon(QIcon(':/icons/app.svg'))
-
-    f = QFile(':/style.qss')
-    f.open(QFile.ReadOnly | QFile.Text)
-    app.setStyleSheet(QTextStream(f).readAll())
-    f.close()
-
-    mw = MainWindow()
-    mw.show()
-
+    window = MainWindow()
+    theme_provider.configure_theme(app)
+    window.show()
     sys.exit(app.exec_())
 
 
