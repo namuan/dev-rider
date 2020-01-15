@@ -44,6 +44,9 @@ res: venv ## Generates and compresses resource file
 run: ## Runs the application
 	export PYTHONPATH=`pwd`:$PYTHONPATH && python app/__main__.py
 
+runapp: ## Runs the packaged application
+	./dist/DevRider.app/Contents/MacOS/app
+
 icns: ## Generates icon files from svg
 	echo "Run ./mk-icns.sh resources/icons/app.svg app"
 
