@@ -1,0 +1,6 @@
+-r base.txt
+pyqt-distutils
+PyInstaller
+Sphinx
+sphinx_rtd_theme
+flake8
