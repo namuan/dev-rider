@@ -2,7 +2,7 @@ import sys
 from PyQt5.QtWidgets import QApplication
 
 from app import __version__, __appname__, __desktopid__
-from app.themes import theme_provider
+from app.themes.theme_provider import configure_theme
 from app.views.MainWindow import MainWindow
 
 
@@ -13,7 +13,7 @@ def main():
     app.setDesktopFileName(__desktopid__)
 
     window = MainWindow()
-    theme_provider.configure_theme(app)
+    configure_theme(app)
     window.show()
     sys.exit(app.exec_())
 

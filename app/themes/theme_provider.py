@@ -1,11 +1,11 @@
-import darkdetect
+# import darkdetect
 from PyQt5.QtGui import QFont, QIcon, QFontDatabase
 
-from themes.theme_loader import ThemeLoader
+from app.themes.theme_loader import ThemeLoader
 
 
 def is_dark():
-    return darkdetect.isDark()
+    return False
 
 
 def configure_theme(app):
