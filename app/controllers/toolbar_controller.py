@@ -35,7 +35,10 @@ class ToolbarController:
         self.switch_tool(selected_tool)
 
     def switch_tool(self, selected_tool):
-        selected_tool.tool.open()
+        selected_widget_class = selected_tool.tool.widget_class
+        selected_widget = selected_widget_class(self.parent.scrollAreaWidgetContents)
+        self.parent.replace_widget(selected_widget)
+        selected_tool.tool.init_view(selected_widget)
 
     def focus_on_devtools_combo_box(self):
         tools_combo = self.__get_combo_box("DevTools")

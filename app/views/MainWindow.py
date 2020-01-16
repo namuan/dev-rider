@@ -1,7 +1,7 @@
 import logging
+import sys
 import traceback
 
-import sys
 from PyQt5.QtGui import QCloseEvent
 from PyQt5.QtWidgets import QMainWindow, QToolBar, qApp
 
@@ -49,3 +49,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             qApp.exit(0)
         except:
             pass
+
+    def replace_widget(self, selected_widget):
+        self.clear_layout(self.toolWidgetLayout)
+        self.toolWidgetLayout.addWidget(selected_widget)
+
+    def clear_layout(self, layout):
+        for i in reversed(range(layout.count())):
+            widget_item = layout.takeAt(i)
+            if widget_item:
+                widget_item.widget().deleteLater()

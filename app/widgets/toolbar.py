@@ -10,6 +10,8 @@ def toolbar_items(self):
     self.addToolBar(Qt.TopToolBarArea, self.toolbar)
     self.toolbar.setMovable(False)
 
+    self.toolbar.addSeparator()
+
     toolbar_ctx_list = QComboBox(self)
     toolbar_ctx_list.setSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding)
     toolbar_ctx_list.setDuplicatesEnabled(False)
