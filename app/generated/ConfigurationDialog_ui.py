@@ -26,7 +26,7 @@ class Ui_Configuration(object):
         self.update = QtWidgets.QWidget()
         self.update.setObjectName("update")
         self.chk_updates_startup = QtWidgets.QCheckBox(self.update)
-        self.chk_updates_startup.setGeometry(QtCore.QRect(20, 20, 221, 20))
+        self.chk_updates_startup.setGeometry(QtCore.QRect(20, 20, 411, 20))
         self.chk_updates_startup.setChecked(True)
         self.chk_updates_startup.setObjectName("chk_updates_startup")
         self.tabWidget.addTab(self.update, "")

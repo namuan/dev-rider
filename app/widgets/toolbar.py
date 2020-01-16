@@ -30,5 +30,5 @@ def toolbar_items(self):
     toolbar_configure_action = QAction(
         QIcon(":/images/configure-48.png"), "Settings", self
     )
-    toolbar_configure_action.triggered.connect(lambda x: x)
+    toolbar_configure_action.triggered.connect(self.config_controller.show_dialog)
     self.toolbar.addAction(toolbar_configure_action)

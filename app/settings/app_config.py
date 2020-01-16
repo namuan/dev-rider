@@ -1,8 +1,12 @@
-class AppConfig:
-    STARTUP_CHECK = False
+from typing import ClassVar
 
-    def __init__(self):
-        self._startup_check = self.STARTUP_CHECK
+import attr
+
+
+@attr.s(auto_attribs=True)
+class AppConfig:
+    STARTUP_CHECK_KEY: ClassVar[str] = "startupCheck"
+    _startup_check: bool = True
 
     @property
     def startup_check(self):

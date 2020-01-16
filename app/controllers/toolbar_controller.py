@@ -6,7 +6,7 @@ from app.tools import tool_plugins
 
 
 class ToolbarController:
-    def __init__(self, parent_window, toolbar):
+    def __init__(self, toolbar, parent_window):
         self.parent = parent_window
         self.toolbar = toolbar
 

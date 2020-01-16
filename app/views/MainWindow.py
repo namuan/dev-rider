@@ -23,7 +23,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # Initialise controllers
         self.main_controller = MainWindowController(self)
-        self.toolbar_controller = ToolbarController(self, self.toolbar)
+        self.toolbar_controller = ToolbarController(self.toolbar, self)
+        self.config_controller = ConfigController(self)
 
         # Initialise components
         toolbar_items(self)

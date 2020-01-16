@@ -6,6 +6,7 @@ from typing import Any, Union
 from PyQt5.QtCore import QSettings, QStandardPaths
 from PyQt5.QtWidgets import qApp
 
+from app.core.str_utils import str_to_bool
 from app.data.data_store import DataStore
 from app.settings.app_config import AppConfig
 
@@ -52,8 +53,14 @@ class AppSettings:
         self.settings.sync()
 
     def save_configuration(self, app_config):
-        self.settings.setValue(AppConfig.STARTUP_CHECK, app_config.startup_check)
+        self.settings.setValue(AppConfig.STARTUP_CHECK_KEY, app_config.startup_check)
         self.settings.sync()
+
+    def load_configuration(self):
+        app_config = AppConfig()
+        settings_value = self.settings.value(AppConfig.STARTUP_CHECK_KEY, app_config.startup_check)
+        app_config.startup_check = str_to_bool(settings_value)
+        return app_config
 
     def geometry(self):
         return self.settings.value("geometry", None)
