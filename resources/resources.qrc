@@ -6,5 +6,6 @@
         <file>icons/app.icns</file>
         <file>icons/app.ico</file>
         <file>icons/app.svg</file>
+        <file>images/configure-48.png</file>
     </qresource>
 </RCC>

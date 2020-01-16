@@ -1,14 +1,8 @@
-import logging
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QStandardItem
 
-tools_list = [
-    "URL Encoder",
-    "URL Decoder",
-    "URL Parser",
-    "HTML Encoder",
-    "HTML Decoder",
-    "Base64 Encoder",
-    "Base64 Decoder"
-]
+from app.core.constants import TOOLS_COMBO_ROLE, DEVTOOLS_COMBO_NAME
+from app.tools import tool_plugins
 
 
 class ToolbarController:
@@ -16,21 +10,34 @@ class ToolbarController:
         self.parent = parent_window
         self.toolbar = toolbar
 
-    def __get_combox_box(self, action_name):
+    def __get_combo_box(self, action_name):
         toolbar_actions = self.toolbar.actions()
         tags_list_action = next(act for act in toolbar_actions if act.text() == action_name)
         return tags_list_action.defaultWidget()
 
     def init(self):
-        tools_combo = self.__get_combox_box("DevTools")
+        tools_combo = self.__get_combo_box(DEVTOOLS_COMBO_NAME)
         tools_combo.clear()
-        for tool in tools_list:
-            tools_combo.addItem(tool)
+        for ek, ev in tool_plugins.items():
+            item: QStandardItem = QStandardItem()
+            item.setData(ev.tool.name, Qt.DisplayRole)
+            item.setData(ek, TOOLS_COMBO_ROLE)
+            tools_combo.addItem(ev.tool.name, item)
 
     def on_toolbar_tool_changed(self, new_tool):
-        logging.info("Dev tool changed to {}".format(new_tool))
+        tools_combo = self.__get_combo_box("DevTools")
+        item: QStandardItem = tools_combo.currentData()
+        if not item:
+            return
+
+        selected_name = item.data(TOOLS_COMBO_ROLE)
+        selected_tool = tool_plugins.get(selected_name)
+        self.switch_tool(selected_tool)
+
+    def switch_tool(self, selected_tool):
+        selected_tool.tool.open()
 
     def focus_on_devtools_combo_box(self):
-        tools_combo = self.__get_combox_box("DevTools")
+        tools_combo = self.__get_combo_box("DevTools")
         tools_combo.setFocus(True)
         tools_combo.showPopup()

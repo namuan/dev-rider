@@ -1,2 +1,4 @@
 PyQt5==5.9.2
 darkdetect
+attrs
+cattrs
