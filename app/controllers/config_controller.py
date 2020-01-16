@@ -1,5 +1,3 @@
-import logging
-
 from app.settings.app_config import AppConfig
 from app.settings.app_settings import app
 from app.views.ConfigurationDialog import ConfigurationDialog
