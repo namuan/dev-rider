@@ -13,7 +13,6 @@ def toolbar_items(self):
     self.toolbar.addSeparator()
 
     toolbar_ctx_list = QComboBox(self)
-    toolbar_ctx_list.setSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding)
     toolbar_ctx_list.setDuplicatesEnabled(False)
     toolbar_ctx_list.setEditable(True)
     toolbar_ctx_list.currentIndexChanged[str].connect(
