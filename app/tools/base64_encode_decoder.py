@@ -1,8 +1,8 @@
 import base64
 
 from app.core.str_utils import str_to_bytes, bytes_to_str
-from app.tools.ToolPlugin import ToolPlugin
-from app.views.Base64EncoderWidget import Base64EncoderWidget
+from app.tools.tool_plugin import ToolPlugin
+from app.views.base64_encoder_widget import Base64EncoderWidget
 
 
 class Base64EncoderDecoder(ToolPlugin):

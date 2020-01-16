@@ -1,8 +1,8 @@
 import logging
 from urllib import parse
 
-from app.tools.ToolPlugin import ToolPlugin
-from app.views.UrlEncoderWidget import UrlEncoderWidget
+from app.tools.tool_plugin import ToolPlugin
+from app.views.url_encoder_widget import UrlEncoderWidget
 
 
 class UrlEncoderDecoder(ToolPlugin):

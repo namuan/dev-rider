@@ -3,7 +3,7 @@ from PyQt5.QtWidgets import QApplication
 
 from app import __version__, __appname__, __desktopid__
 from app.themes.theme_provider import configure_theme
-from app.views.MainWindow import MainWindow
+from app.views.main_window import MainWindow
 
 
 def main():

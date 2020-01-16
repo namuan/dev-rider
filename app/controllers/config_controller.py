@@ -1,6 +1,6 @@
 from app.settings.app_config import AppConfig
 from app.settings.app_settings import app
-from app.views.ConfigurationDialog import ConfigurationDialog
+from app.views.configuration_dialog import ConfigurationDialog
 
 
 class ConfigController:
