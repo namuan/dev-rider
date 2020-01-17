@@ -15,7 +15,7 @@ except ImportError:
     pass
 
 with open('app/__init__.py') as f:
-    _version = re.search(r'__version__\s+=\s+\'(.*)\'', f.read()).group(1)
+    _version = re.search(r'__version__\s+=\s+\"(.*)\"', f.read()).group(1)
 
 
 class bdist_app(Command):
