@@ -5,8 +5,14 @@ import sys
 from PyQt5.QtGui import QCloseEvent
 from PyQt5.QtWidgets import QMainWindow, qApp
 
-from app.controllers import *
-from app.controllers.codegen_controller import CodeGenController
+from app.controllers import (
+    MainWindowController,
+    ToolController,
+    ToolbarController,
+    CodeGenController,
+    ConfigController,
+    ShortcutController,
+)
 from app.generated.MainWindow_ui import Ui_MainWindow
 from app.settings.app_settings import app
 
@@ -39,8 +45,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     @staticmethod
     def log_uncaught_exceptions(cls, exc, tb) -> None:
-        logging.critical(''.join(traceback.format_tb(tb)))
-        logging.critical('{0}: {1}'.format(cls, exc))
+        logging.critical("".join(traceback.format_tb(tb)))
+        logging.critical("{0}: {1}".format(cls, exc))
 
     def closeEvent(self, event: QCloseEvent):
         logging.info("Received close event")

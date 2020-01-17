@@ -18,7 +18,10 @@ venv: ## Load virtualenv
 clean: ## Clean package
 	rm -rf build dist
 
-lint: ## Runs Flake8 for linting
+black: ## Runs black for code formatting
+	black app --exclude generated
+
+lint: black ## Runs Flake8 for linting
 	flake8 app
 
 reset: ## Re-initiates virtualenv

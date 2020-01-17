@@ -22,11 +22,8 @@ class DataStore:
     def update_app_state_in_db(self):
         table = self.db[self.app_state.record_type]
         table.upsert(
-            dict(
-                name=self.app_state.record_type,
-                object=self.app_state.to_json_str()
-            ),
-            ['name']
+            dict(name=self.app_state.record_type, object=self.app_state.to_json_str()),
+            ["name"],
         )
 
     def get_app_state(self):

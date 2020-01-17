@@ -1,4 +1,4 @@
-from app.core.languages import *
+from app.core.languages import PY_LANG
 
 
 def gen_py():
@@ -6,6 +6,4 @@ def gen_py():
     """
 
 
-generator = {
-    PY_LANG: gen_py
-}
+generator = {PY_LANG: gen_py}

@@ -19,8 +19,7 @@ class MainWindowController:
     def save_settings(self):
         logging.info("Saving settings for Main Window")
         self.app.save_window_state(
-            geometry=self.parent.saveGeometry(),
-            window_state=self.parent.saveState()
+            geometry=self.parent.saveGeometry(), window_state=self.parent.saveState()
         )
 
     def shutdown(self):

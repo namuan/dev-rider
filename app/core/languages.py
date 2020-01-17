@@ -1,2 +1,2 @@
-JAVA_LANG = 'java'
-PY_LANG = 'python'
+JAVA_LANG = "java"
+PY_LANG = "python"

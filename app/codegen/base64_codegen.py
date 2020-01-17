@@ -1,4 +1,4 @@
-from app.core.languages import *
+from app.core.languages import JAVA_LANG, PY_LANG
 
 
 def gen_java():
@@ -42,7 +42,4 @@ print("Base64: {} -> Plain: {}".format(base64String, plainString))
     """
 
 
-generator = {
-    JAVA_LANG: gen_java,
-    PY_LANG: gen_py
-}
+generator = {JAVA_LANG: gen_java, PY_LANG: gen_py}

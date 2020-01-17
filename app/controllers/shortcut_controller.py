@@ -1,9 +1,5 @@
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QStandardItem, QIcon, QKeySequence
-from PyQt5.QtWidgets import QToolBar, QComboBox, QWidgetAction, QWidget, QSizePolicy, QAction, QShortcut
-
-from app.core.constants import TOOLS_COMBO_ROLE, DEVTOOLS_COMBO_NAME
-from app.tools import tool_plugins
+from PyQt5.QtGui import QKeySequence
+from PyQt5.QtWidgets import QShortcut
 
 
 class ShortcutController:
@@ -13,4 +9,6 @@ class ShortcutController:
 
     def init_items(self):
         short = QShortcut(QKeySequence("Ctrl+G"), self.parent)
-        short.activated.connect(self.parent.toolbar_controller.focus_on_devtools_combo_box)
+        short.activated.connect(
+            self.parent.toolbar_controller.focus_on_devtools_combo_box
+        )

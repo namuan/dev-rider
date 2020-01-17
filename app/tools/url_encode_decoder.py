@@ -10,7 +10,7 @@ class UrlEncoderDecoder(ToolPlugin):
         super().__init__(
             name="URL Encoder/Decoder",
             widget_class=UrlEncoderWidget,
-            code_generator=generator
+            code_generator=generator,
         )
 
     def bind_events(self):

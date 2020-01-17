@@ -11,7 +11,7 @@ class Base64EncoderDecoder(ToolPlugin):
         super().__init__(
             name="Base64 Encoder/Decoder",
             widget_class=Base64EncoderWidget,
-            code_generator=generator
+            code_generator=generator,
         )
 
     def bind_events(self):

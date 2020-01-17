@@ -1,6 +1,13 @@
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QToolBar, QComboBox, QWidgetAction, QWidget, QSizePolicy, QAction
+from PyQt5.QtWidgets import (
+    QToolBar,
+    QComboBox,
+    QWidgetAction,
+    QWidget,
+    QSizePolicy,
+    QAction,
+)
 
 from app.core.constants import DEVTOOLS_COMBO_NAME
 from app.tools import tool_plugins
@@ -15,7 +22,9 @@ class ToolbarController:
 
     def __get_combo_box(self, action_name) -> QComboBox:
         toolbar_actions = self.toolbar.actions()
-        tags_list_action = next(act for act in toolbar_actions if act.text() == action_name)
+        tags_list_action = next(
+            act for act in toolbar_actions if act.text() == action_name
+        )
         return tags_list_action.defaultWidget()
 
     def init(self):
@@ -73,5 +82,7 @@ class ToolbarController:
         toolbar_configure_action = QAction(
             QIcon(":/images/configure-48.png"), "Settings", self.parent
         )
-        toolbar_configure_action.triggered.connect(self.parent.config_controller.show_dialog)
+        toolbar_configure_action.triggered.connect(
+            self.parent.config_controller.show_dialog
+        )
         self.toolbar.addAction(toolbar_configure_action)

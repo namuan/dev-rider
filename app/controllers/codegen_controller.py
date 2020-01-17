@@ -4,14 +4,11 @@ from pygments.formatters.html import HtmlFormatter
 from pygments.lexers.jvm import JavaLexer
 from pygments.lexers.python import Python3Lexer
 
-from app.core.languages import *
+from app.core.languages import PY_LANG, JAVA_LANG
 from app.themes.theme_provider import pyg_styles
 from app.tools import tool_plugins
 
-highlighter = {
-    JAVA_LANG: JavaLexer(),
-    PY_LANG: Python3Lexer()
-}
+highlighter = {JAVA_LANG: JavaLexer(), PY_LANG: Python3Lexer()}
 
 
 class CodeGenController:
@@ -26,7 +23,9 @@ class CodeGenController:
         self.app.data.signals.tool_switched.connect(self.on_tool_switched)
 
         # ui events
-        self.parent.cmb_languages.currentIndexChanged[str].connect(self.switch_codegen_language)
+        self.parent.cmb_languages.currentIndexChanged[str].connect(
+            self.switch_codegen_language
+        )
         self.parent.btn_copy_clipboard.pressed.connect(self.on_copy_clipboard)
 
     def on_tool_switched(self, new_tool_name):
@@ -52,7 +51,9 @@ class CodeGenController:
         self.parent.txt_code.setTextCursor(txt_cursor)
 
     def syntax_highlighter(self, generated_code, code_language):
-        return highlight(generated_code, highlighter.get(code_language), HtmlFormatter())
+        return highlight(
+            generated_code, highlighter.get(code_language), HtmlFormatter()
+        )
 
     def init_languages(self, tool):
         self.selected_tool = tool
