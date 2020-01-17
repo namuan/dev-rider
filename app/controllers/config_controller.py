@@ -1,12 +1,13 @@
 from app.settings.app_config import AppConfig
-from app.settings.app_settings import app
+
 from app.views.configuration_dialog import ConfigurationDialog
 
 
 class ConfigController:
-    def __init__(self, parent_view):
+    def __init__(self, parent_view, app):
         self.view = ConfigurationDialog(parent_view)
         self.parent_view = parent_view
+        self.app = app
 
         # ui events
         self.view.btn_save_configuration.pressed.connect(self.on_success)
@@ -17,11 +18,11 @@ class ConfigController:
 
     def on_success(self):
         app_config = self.form_to_object()
-        app.save_configuration(app_config)
+        self.app.save_configuration(app_config)
         self.view.accept()
 
     def show_dialog(self):
-        app_config = app.load_configuration()
+        app_config = self.app.load_configuration()
         self.object_to_form(app_config)
         self.view.show()
 

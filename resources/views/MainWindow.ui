@@ -57,8 +57,8 @@
              <rect>
               <x>0</x>
               <y>0</y>
-              <width>639</width>
-              <height>448</height>
+              <width>665</width>
+              <height>426</height>
              </rect>
             </property>
             <layout class="QHBoxLayout" name="toolWidgetLayout">
@@ -196,8 +196,16 @@
         </item>
         <item>
          <widget class="QPlainTextEdit" name="txt_code">
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
           <property name="frameShape">
            <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
           </property>
          </widget>
         </item>

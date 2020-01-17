@@ -38,6 +38,7 @@ class Ui_Base64EncoderWidget(object):
         self.horizontalLayout.addItem(spacerItem1)
         self.verticalLayout.addWidget(self.frame)
         self.txt_target = QtWidgets.QPlainTextEdit(Base64EncoderWidget)
+        self.txt_target.setReadOnly(True)
         self.txt_target.setObjectName("txt_target")
         self.verticalLayout.addWidget(self.txt_target)
 

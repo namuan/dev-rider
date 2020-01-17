@@ -1,22 +1,24 @@
 import logging
 
-from app.settings.app_settings import app
-
 
 class MainWindowController:
-    def __init__(self, parent_window):
+    def __init__(self, parent_window, app):
         self.parent = parent_window
         self.initial_load = True
-        app.init()
-        app.init_logger()
-        if app.geometry():
-            self.parent.restoreGeometry(app.geometry())
-        if app.window_state():
-            self.parent.restoreState(app.window_state())
+        self.app = app
+        self.init_app()
+
+    def init_app(self):
+        self.app.init()
+        self.app.init_logger()
+        if self.app.geometry():
+            self.parent.restoreGeometry(self.app.geometry())
+        if self.app.window_state():
+            self.parent.restoreState(self.app.window_state())
 
     def save_settings(self):
         logging.info("Saving settings for Main Window")
-        app.save_window_state(
+        self.app.save_window_state(
             geometry=self.parent.saveGeometry(),
             window_state=self.parent.saveState()
         )
@@ -29,7 +31,7 @@ class MainWindowController:
             return
 
         self.initial_load = False
-        self.init()
+        self.on_first_load()
 
-    def init(self):
+    def on_first_load(self):
         self.parent.toolbar_controller.init()

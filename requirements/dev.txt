@@ -4,3 +4,4 @@ PyInstaller==3.4
 Sphinx
 sphinx_rtd_theme
 flake8
+black

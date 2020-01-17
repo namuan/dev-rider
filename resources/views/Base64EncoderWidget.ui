@@ -101,7 +101,11 @@
     </widget>
    </item>
    <item>
-    <widget class="QPlainTextEdit" name="txt_target"/>
+    <widget class="QPlainTextEdit" name="txt_target">
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

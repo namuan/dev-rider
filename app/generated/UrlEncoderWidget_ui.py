@@ -38,6 +38,7 @@ class Ui_UrlEncoderWidget(object):
         self.horizontalLayout.addItem(spacerItem1)
         self.verticalLayout.addWidget(self.frame)
         self.txt_target = QtWidgets.QPlainTextEdit(UrlEncoderWidget)
+        self.txt_target.setReadOnly(True)
         self.txt_target.setObjectName("txt_target")
         self.verticalLayout.addWidget(self.txt_target)
 

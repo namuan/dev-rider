@@ -1,14 +1,14 @@
 import logging
-import sys
 import traceback
 
+import sys
 from PyQt5.QtGui import QCloseEvent
-from PyQt5.QtWidgets import QMainWindow, QToolBar, qApp
+from PyQt5.QtWidgets import QMainWindow, qApp
 
 from app.controllers import *
+from app.controllers.codegen_controller import CodeGenController
 from app.generated.MainWindow_ui import Ui_MainWindow
-from app.widgets.shortcuts import shortcut_items
-from app.widgets.toolbar import toolbar_items
+from app.settings.app_settings import app
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -18,17 +18,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         QMainWindow.__init__(self)
         self.setupUi(self)
 
-        # Add components on Main Window
-        self.toolbar = QToolBar()
-
         # Initialise controllers
-        self.main_controller = MainWindowController(self)
-        self.toolbar_controller = ToolbarController(self.toolbar, self)
-        self.config_controller = ConfigController(self)
+        self.main_controller = MainWindowController(self, app)
+        self.toolbar_controller = ToolbarController(self, app)
+        self.config_controller = ConfigController(self, app)
+        self.codegen_controller = CodeGenController(self, app)
+        self.shortcut_controller = ShortcutController(self, app)
+        self.tool_controller = ToolController(self, app)
 
         # Initialise components
-        toolbar_items(self)
-        shortcut_items(self)
+        self.toolbar_controller.init_items()
+        self.shortcut_controller.init_items()
 
         # Initialise Sub-Systems
         sys.excepthook = MainWindow.log_uncaught_exceptions
