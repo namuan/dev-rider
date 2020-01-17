@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'resources/views/MainWindow.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.12.3
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -109,4 +111,3 @@ class Ui_MainWindow(object):
         self.cmb_languages.setItemText(2, _translate("MainWindow", "Node.js"))
         self.cmb_languages.setItemText(3, _translate("MainWindow", "Python"))
         self.btn_copy_clipboard.setText(_translate("MainWindow", "Clipboard"))
-

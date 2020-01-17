@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'resources/views/Base64EncoderWidget.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.12.3
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Base64EncoderWidget(object):
     def setupUi(self, Base64EncoderWidget):
@@ -51,4 +53,3 @@ class Ui_Base64EncoderWidget(object):
         self.txt_source.setPlainText(_translate("Base64EncoderWidget", "Some text"))
         self.btn_b64_encode.setText(_translate("Base64EncoderWidget", "Base64 Encode"))
         self.btn_b64_decode.setText(_translate("Base64EncoderWidget", "Base64 Decode"))
-

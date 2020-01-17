@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'resources/views/UrlEncoderWidget.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.12.3
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_UrlEncoderWidget(object):
     def setupUi(self, UrlEncoderWidget):
@@ -51,4 +53,3 @@ class Ui_UrlEncoderWidget(object):
         self.txt_source.setPlainText(_translate("UrlEncoderWidget", "http://www.google.com"))
         self.btn_url_encode.setText(_translate("UrlEncoderWidget", "Url Encode"))
         self.btn_url_decode.setText(_translate("UrlEncoderWidget", "Url Decode"))
-

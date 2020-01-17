@@ -1,6 +1,6 @@
 -r base.txt
 pyqt-distutils
-PyInstaller==3.4
+PyInstaller>=3.6
 Sphinx
 sphinx_rtd_theme
 flake8

@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'resources/views/ConfigurationDialog.ui'
 #
-# Created by: PyQt5 UI code generator 5.9.2
+# Created by: PyQt5 UI code generator 5.12.3
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_Configuration(object):
     def setupUi(self, Configuration):
@@ -56,4 +58,3 @@ class Ui_Configuration(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("Configuration", "Credit"))
         self.btn_save_configuration.setText(_translate("Configuration", "OK"))
         self.btn_cancel_configuration.setText(_translate("Configuration", "Cancel"))
-
