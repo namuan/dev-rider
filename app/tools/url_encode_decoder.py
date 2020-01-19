@@ -1,17 +1,12 @@
 from urllib import parse
 
-from app.codegen.urlencoding_codegen import generator
 from app.tools.tool_plugin import ToolPlugin
 from app.views.url_encoder_widget import UrlEncoderWidget
 
 
 class UrlEncoderDecoder(ToolPlugin):
     def __init__(self):
-        super().__init__(
-            name="URL Encoder/Decoder",
-            widget_class=UrlEncoderWidget,
-            code_generator=generator,
-        )
+        super().__init__(name="URL Encoder/Decoder", widget_class=UrlEncoderWidget)
 
     def bind_events(self):
         # bind ui events

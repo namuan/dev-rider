@@ -1,6 +1,5 @@
 import base64
 
-from app.codegen.base64_codegen import generator
 from app.core.str_utils import str_to_bytes, bytes_to_str
 from app.tools.tool_plugin import ToolPlugin
 from app.views.base64_encoder_widget import Base64EncoderWidget
@@ -9,9 +8,7 @@ from app.views.base64_encoder_widget import Base64EncoderWidget
 class Base64EncoderDecoder(ToolPlugin):
     def __init__(self):
         super().__init__(
-            name="Base64 Encoder/Decoder",
-            widget_class=Base64EncoderWidget,
-            code_generator=generator,
+            name="Base64 Encoder/Decoder", widget_class=Base64EncoderWidget
         )
 
     def bind_events(self):

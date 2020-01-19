@@ -1,3 +1,6 @@
+import logging
+from pathlib import Path
+
 from PyQt5.QtGui import QTextCursor
 from pygments import highlight
 from pygments.formatters.html import HtmlFormatter
@@ -9,6 +12,7 @@ from app.themes.theme_provider import pyg_styles
 from app.tools import tool_plugins
 
 highlighter = {JAVA_LANG: JavaLexer(), PY_LANG: Python3Lexer()}
+language_main_file = {JAVA_LANG: "Main.java", PY_LANG: "main.py"}
 
 
 class CodeGenController:
@@ -40,7 +44,7 @@ class CodeGenController:
         if not new_language or not self.selected_tool:
             return
 
-        generated_code = self.selected_tool.generate_code(new_language)
+        generated_code = self.load_code(self.selected_tool, new_language)
         syntax_highlighted_code = self.syntax_highlighter(generated_code, new_language)
         self.parent.txt_code.clear()
         self.parent.txt_code.appendHtml(syntax_highlighted_code)
@@ -58,5 +62,33 @@ class CodeGenController:
     def init_languages(self, tool):
         self.selected_tool = tool
         self.parent.cmb_languages.clear()
-        for lang in tool.languages:
+        available_languages = self.available_languages(tool)
+        for lang in available_languages:
             self.parent.cmb_languages.addItem(lang)
+
+        if available_languages:
+            self.parent.cmb_languages.setCurrentIndex(0)
+
+    def available_languages(self, tool):
+        if not self.tool_dir(tool).exists():
+            return []
+
+        return [x.name for x in self.tool_dir(tool).iterdir() if x.is_dir()]
+
+    def load_code(self, tool, language):
+        tool_name = type(tool).__name__
+        main_file = language_main_file.get(language)
+        code_file: Path = self.tool_dir(tool).joinpath(language).joinpath(main_file)
+        logging.info("Loading {}".format(code_file))
+        if code_file.exists():
+            return code_file.read_text(encoding="utf-8")
+        else:
+            return "Unable to find code for {} in {}".format(tool_name, language)
+
+    def tool_dir(self, tool):
+        norm_tool_name = type(tool).__name__.lower()
+        return (
+            Path(__file__)
+            .parent.parent.parent.joinpath("codegen")
+            .joinpath(norm_tool_name)
+        )
