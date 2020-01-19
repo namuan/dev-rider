@@ -70,7 +70,9 @@ class CodeGenController:
             self.parent.cmb_languages.setCurrentIndex(0)
 
     def available_languages(self, tool):
-        if not self.tool_dir(tool).exists():
+        tool_dir = self.tool_dir(tool)
+        if not tool_dir.exists():
+            logging.info("Unable to find any languages in {}".format(tool_dir.absolute()))
             return []
 
         return [x.name for x in self.tool_dir(tool).iterdir() if x.is_dir()]

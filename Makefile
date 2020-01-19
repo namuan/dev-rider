@@ -15,7 +15,13 @@ release: ## Step to prepare a new release
 venv: ## Load virtualenv
 	source venv/bin/activate
 
-clean: ## Clean package
+clean-pyc: ## remove Python file artifacts
+	find . -name '*.pyc' -exec rm -f {} +
+	find . -name '*.pyo' -exec rm -f {} +
+	find . -name '*~' -exec rm -f {} +
+	find . -name '__pycache__' -exec rm -fr {} +
+
+clean: clean-pyc ## Clean package
 	rm -rf build dist
 
 black: ## Runs black for code formatting

@@ -7,7 +7,9 @@ import app
 a = Analysis(['bin/app'],
              pathex=['.'],
              binaries=None,
-             datas=[],
+             datas=[
+                ('./codegen', 'codegen/')
+             ],
              hiddenimports=[],
              hookspath=None,
              runtime_hooks=None,
