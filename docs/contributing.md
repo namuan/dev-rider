@@ -12,3 +12,5 @@ source venv/bin/activate
 pip install -r requirements/dev.txt
 Once everything is installed, 'make run' to run the application
 ```
+
+1. [Adding a new utility/tool](devrider-adding-tool.md)
