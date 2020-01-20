@@ -6,7 +6,7 @@ And then there is also a huge problem with privacy and leaking any private data 
 
 [DevRider](https://github.com/namuan/dev-rider) is an attempt to provide a desktop tool which includes a shell and addins for various utilities.
 
-![DevRider Cover Image](https://www.deskriders.dev/images/devrider-cover-image.png)
+![DevRider Cover Image](docs/images/devrider-intro-demo.gif)
 
 #### Features
 
