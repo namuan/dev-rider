@@ -33,6 +33,8 @@ class CodeGenController:
         self.parent.btn_copy_clipboard.pressed.connect(self.on_copy_clipboard)
 
     def on_tool_switched(self, new_tool_name):
+        self.parent.txt_code.clear()
+
         selected_tool = tool_plugins.get(new_tool_name)
         self.init_languages(selected_tool.tool)
 
