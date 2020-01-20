@@ -1,9 +1,9 @@
 from PyQt5 import QtWidgets
 
-from app.generated.Base64EncoderWidget_ui import Ui_Base64EncoderWidget
+from app.generated.MarkdownViewerWidget_ui import Ui_MarkdownViewerWidget
 
 
-class Base64EncoderWidget(QtWidgets.QWidget, Ui_Base64EncoderWidget):
+class MarkdownViewerWidget(QtWidgets.QWidget, Ui_MarkdownViewerWidget):
     def __init__(self, parent=None):
-        super(Base64EncoderWidget, self).__init__(parent)
+        super(MarkdownViewerWidget, self).__init__(parent)
         self.setupUi(self)

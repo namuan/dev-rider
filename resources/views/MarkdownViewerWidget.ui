@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Base64EncoderWidget</class>
- <widget class="QWidget" name="Base64EncoderWidget">
+ <class>MarkdownViewerWidget</class>
+ <widget class="QWidget" name="MarkdownViewerWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>595</width>
-    <height>492</height>
+    <width>713</width>
+    <height>409</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -29,7 +29,11 @@
    <item>
     <widget class="QPlainTextEdit" name="txt_source">
      <property name="plainText">
-      <string>Some text</string>
+      <string>### Heading
+
+Hello DevRider. This project is amazing...
+
+[Github Project](https://github.com/namuan/dev-rider)</string>
      </property>
     </widget>
    </item>
@@ -44,7 +48,7 @@
      <property name="lineWidth">
       <number>0</number>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <property name="leftMargin">
        <number>0</number>
       </property>
@@ -58,41 +62,28 @@
        <number>0</number>
       </property>
       <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btn_b64_encode">
+       <widget class="QPushButton" name="btn_raw_html">
         <property name="text">
-         <string>Base64 Encode</string>
+         <string>View Raw Html</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btn_b64_decode">
+       <widget class="QPushButton" name="btn_render_html">
         <property name="text">
-         <string>Base64 Decode</string>
+         <string>Render Html</string>
         </property>
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="verticalSpacer_2">
         <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+         <enum>Qt::Vertical</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>20</width>
+          <height>40</height>
          </size>
         </property>
        </spacer>
