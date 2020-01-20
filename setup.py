@@ -7,13 +7,6 @@ from setuptools import setup, find_packages, Command
 
 cmdclass = {}
 
-try:
-    from sphinx.setup_command import BuildDoc
-
-    cmdclass['build_docs'] = BuildDoc
-except ImportError:
-    pass
-
 with open('app/__init__.py') as f:
     _version = re.search(r'__version__\s+=\s+\"(.*)\"', f.read()).group(1)
 

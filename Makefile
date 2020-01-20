@@ -41,9 +41,6 @@ deps: ## Reinstalls dependencies
 package: clean ## Rebuilds venv and packages app
 	export PYTHONPATH=`pwd`:$PYTHONPATH && ./venv/bin/python3 setup.py bdist_app
 
-docs: clean ## Build docs
-	./venv/bin/python3 setup.py build_docs
-
 uic: res ## Converts ui files to python
 	for i in `ls resources/views/*.ui`; do FNAME=`basename $${i} ".ui"`; ./venv/bin/pyuic5 $${i} > "app/generated/$${FNAME}_ui.py"; done
 
