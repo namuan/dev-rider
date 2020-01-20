@@ -23,8 +23,14 @@ def str_to_bool(bool_str):
 
 
 def plain_to_b64_str(plain_str):
+    if not plain_str:
+        return ""
+
     return bytes_to_str(base64.standard_b64encode(str_to_bytes(plain_str)))
 
 
 def b64_to_plain_str(b64_str):
+    if not b64_str:
+        return ""
+
     return bytes_to_str(base64.standard_b64decode(str_to_bytes(b64_str)))

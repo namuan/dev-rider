@@ -37,6 +37,9 @@ class DataStore:
 
     def update_selected_tool(self, selected_tool):
         logging.debug("Updating selected tool to {}".format(selected_tool))
+        if not selected_tool:
+            return
+
         self.app_state.selected_tool = selected_tool
         self.update_app_state_in_db()
         self.signals.tool_switched.emit(selected_tool)

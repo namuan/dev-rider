@@ -9,8 +9,8 @@ APP_STATE_RECORD_TYPE = "app_state"
 @attr.s(auto_attribs=True)
 class AppState:
     record_type: str = APP_STATE_RECORD_TYPE
-    selected_tool: str = None
-    scratch_note: str = None
+    selected_tool: str = ""
+    scratch_note: str = ""
 
     @classmethod
     def from_json_str(cls, json_str):

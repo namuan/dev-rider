@@ -28,8 +28,6 @@ class ToolbarController:
         return tags_list_action.defaultWidget()
 
     def init(self):
-        selected_tool = self.app.data.get_selected_tool()
-
         tools_combo = self.__get_combo_box(DEVTOOLS_COMBO_NAME)
         tools_combo.clear()
         for ek, ev in tool_plugins.items():
@@ -38,10 +36,11 @@ class ToolbarController:
         # To avoid creating any view while we are populating tools in the combo box
         self.populating_tools = False
 
+        selected_tool = self.app.data.get_selected_tool()
         found = tools_combo.findData(selected_tool)
-        tools_combo.setCurrentIndex(found)
+        tools_combo.setCurrentIndex(found if found > 0 else 0)
         # Manually triggering to render the view as the index is not changing
-        if found == 0:
+        if found <= 0:
             self.on_toolbar_tool_changed(selected_tool)
 
     def on_toolbar_tool_changed(self, _):
