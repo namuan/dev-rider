@@ -12,6 +12,7 @@ from app.controllers import (
     CodeGenController,
     ConfigController,
     ShortcutController,
+    ScratchPadController
 )
 from app.generated.MainWindow_ui import Ui_MainWindow
 from app.settings.app_settings import app
@@ -31,6 +32,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.codegen_controller = CodeGenController(self, app)
         self.shortcut_controller = ShortcutController(self, app)
         self.tool_controller = ToolController(self, app)
+        self.scratch_pad_controller = ScratchPadController(self, app)
 
         # Initialise components
         self.toolbar_controller.init_items()

@@ -10,6 +10,7 @@ APP_STATE_RECORD_TYPE = "app_state"
 class AppState:
     record_type: str = APP_STATE_RECORD_TYPE
     selected_tool: str = None
+    scratch_note: str = None
 
     @classmethod
     def from_json_str(cls, json_str):

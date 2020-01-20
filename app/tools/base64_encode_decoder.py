@@ -1,6 +1,6 @@
 import base64
 
-from app.core.str_utils import str_to_bytes, bytes_to_str
+from app.core.str_utils import str_to_bytes, bytes_to_str, plain_to_b64_str, b64_to_plain_str
 from app.tools.tool_plugin import ToolPlugin
 from app.views.base64_encoder_widget import Base64EncoderWidget
 
@@ -19,16 +19,12 @@ class Base64EncoderDecoder(ToolPlugin):
     def on_b64_encode(self):
         source = self.view.txt_source.toPlainText()
         if source:
-            self.view.txt_target.setPlainText(
-                bytes_to_str(base64.standard_b64encode(str_to_bytes(source)))
-            )
+            self.view.txt_target.setPlainText(plain_to_b64_str(source))
 
     def on_b64_decode(self):
         source = self.view.txt_source.toPlainText()
         if source:
-            self.view.txt_target.setPlainText(
-                bytes_to_str(base64.standard_b64decode(str_to_bytes(source)))
-            )
+            self.view.txt_target.setPlainText(b64_to_plain_str(source))
 
 
 tool = Base64EncoderDecoder()

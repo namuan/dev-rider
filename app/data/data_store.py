@@ -2,6 +2,7 @@ import logging
 
 import dataset
 
+from app.core.str_utils import plain_to_b64_str, b64_to_plain_str
 from app.data.entities import AppState, APP_STATE_RECORD_TYPE
 from app.events.signals import AppSignals
 
@@ -42,3 +43,14 @@ class DataStore:
 
     def get_selected_tool(self):
         return self.app_state.selected_tool
+
+    def update_scratch_note(self, scratch_note):
+        logging.debug("Updating Scratch Pad: Characters: {}".format(len(scratch_note)))
+        if not scratch_note:
+            return
+
+        self.app_state.scratch_note = plain_to_b64_str(scratch_note)
+        self.update_app_state_in_db()
+
+    def get_scratch_note(self):
+        return b64_to_plain_str(self.app_state.scratch_note)
