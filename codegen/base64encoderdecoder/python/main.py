@@ -24,5 +24,8 @@ def decode(src):
 
 
 if __name__ == "__main__":
-    assert encode("Hello World") == "SGVsbG8gV29ybGQ="
-    assert decode("SGVsbG8gV29ybGQ=") == "Hello World"
+    plain = "Hello World"
+    encoded = "SGVsbG8gV29ybGQ="
+
+    assert encode(plain) == encoded
+    assert decode(encoded) == plain

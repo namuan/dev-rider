@@ -1,16 +1,24 @@
+/*
+Requires Apache commons-codec - https://mvnrepository.com/artifact/commons-codec/commons-codec
+    <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.13</version>
+    </dependency>
+ */
+
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.EncoderException;
+import org.apache.commons.codec.net.URLCodec;
+
 class Main {
 
-    public String encode(String src) {
-        return "";
+    public static String encode(String source) throws EncoderException {
+        return new URLCodec().encode(source);
     }
 
-    public String decode(String src) {
-        return "";
+    public static String decode(String source) throws DecoderException {
+        return new URLCodec().decode(source);
     }
 
-    public static void main(String[] args) {
-        Main m = new Main();
-        assert m.encode("").equals("");
-        assert m.decode("").equals("");
-    }
 }

@@ -12,7 +12,7 @@ test: ## Test application
 	python main.py
 
 .PHONY: help
-.DEFAULT_GOAL := setup
+.DEFAULT_GOAL := help
 
 help: Makefile
 	echo

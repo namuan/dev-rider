@@ -9,10 +9,10 @@ build: ## Build application
 	echo "Steps required to build sample application"
 
 test: ## Test application
-	echo "Steps required to test sample application"
+	python main.py
 
 .PHONY: help
-.DEFAULT_GOAL := setup
+.DEFAULT_GOAL := help
 
 help: Makefile
 	echo
