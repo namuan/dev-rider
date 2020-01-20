@@ -14,13 +14,15 @@ And then there is also a huge problem with privacy and leaking any private data 
 
 🚀 Curated code samples
 
-🚀 View History (Coming soon)
+🚀 Scratch Pad
 
 #### Bundled Tools/Utilities
 
 🚀 Base64 Encoder/Decoder
 
 🚀 URL Encoder/Decoder
+
+🚀 Markdown Viewer
 
 #### Getting started
 
