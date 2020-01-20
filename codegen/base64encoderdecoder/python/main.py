@@ -23,7 +23,7 @@ def decode(src):
     return src_in_string_bytes.decode(encoding="utf-8")
 
 
-if __name__ == "__main__":
+def test_base64_encoder_decoder():
     plain = "Hello World"
     encoded = "SGVsbG8gV29ybGQ="
 

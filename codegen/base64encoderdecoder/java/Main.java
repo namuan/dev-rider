@@ -1,13 +1,13 @@
+package dev.deskriders.devrider.codecs;
+
 import java.util.Base64;
 
-class Main {
-
-    public String encode(String src) {
-        return Base64.getEncoder().encodeToString(src.getBytes());
+public class Base64EncoderDecoder {
+    public static String encode(String source) {
+        return Base64.getEncoder().encodeToString(source.getBytes());
     }
 
-    public String decode(String src) {
-        return new String(Base64.getDecoder().decode(src));
+    public static String decode(String source) {
+        return new String(Base64.getDecoder().decode(source));
     }
-
 }
