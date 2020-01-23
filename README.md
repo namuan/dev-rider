@@ -24,6 +24,8 @@ And then there is also a huge problem with privacy and leaking any private data 
 
 🚀 Markdown Viewer
 
+🚀 JSON Viewer/Formatter/Minifier
+
 #### Getting started
 
 See [Contributing](docs/contributing.md)
