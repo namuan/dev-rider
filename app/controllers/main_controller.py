@@ -35,4 +35,3 @@ class MainWindowController:
     def on_first_load(self):
         self.parent.toolbar_controller.init()
         self.parent.scratch_pad_controller.init()
-

@@ -5,3 +5,4 @@ cattrs
 Pygments
 dataset
 mistune
+jsonpath-ng

@@ -2,16 +2,11 @@ import logging
 from pathlib import Path
 
 from PyQt5.QtGui import QTextCursor
-from pygments import highlight
-from pygments.formatters.html import HtmlFormatter
-from pygments.lexers.jvm import JavaLexer
-from pygments.lexers.python import Python3Lexer
 
-from app.core.languages import PY_LANG, JAVA_LANG
+from app.core.languages import PY_LANG, JAVA_LANG, syntax_highlighter
 from app.themes.theme_provider import pyg_styles
 from app.tools import tool_plugins
 
-highlighter = {JAVA_LANG: JavaLexer(), PY_LANG: Python3Lexer()}
 language_main_file = {JAVA_LANG: "Main.java", PY_LANG: "main.py"}
 
 
@@ -47,7 +42,7 @@ class CodeGenController:
             return
 
         generated_code = self.load_code(self.selected_tool, new_language)
-        syntax_highlighted_code = self.syntax_highlighter(generated_code, new_language)
+        syntax_highlighted_code = syntax_highlighter(generated_code, new_language)
         self.parent.txt_code.clear()
         self.parent.txt_code.appendHtml(syntax_highlighted_code)
 
@@ -55,11 +50,6 @@ class CodeGenController:
         txt_cursor: QTextCursor = self.parent.txt_code.textCursor()
         txt_cursor.movePosition(QTextCursor.Start)
         self.parent.txt_code.setTextCursor(txt_cursor)
-
-    def syntax_highlighter(self, generated_code, code_language):
-        return highlight(
-            generated_code, highlighter.get(code_language), HtmlFormatter()
-        )
 
     def init_languages(self, tool):
         self.selected_tool = tool
@@ -74,7 +64,9 @@ class CodeGenController:
     def available_languages(self, tool):
         tool_dir = self.tool_dir(tool)
         if not tool_dir.exists():
-            logging.info("Unable to find any languages in {}".format(tool_dir.absolute()))
+            logging.info(
+                "Unable to find any languages in {}".format(tool_dir.absolute())
+            )
             return []
 
         return [x.name for x in self.tool_dir(tool).iterdir() if x.is_dir()]

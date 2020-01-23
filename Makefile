@@ -56,6 +56,13 @@ runapp: ## Runs the packaged application
 icns: ## Generates icon files from svg
 	echo "Run ./mk-icns.sh resources/icons/app.svg app"
 
+newtool: ## Instructions for adding a new tool
+	echo "cp resources/views/Base64EncoderWidget.ui resources/views/NewToolWidget.ui"
+	echo "mkdir -vp app/tools/newtool"
+	echo "cp app/tools/base64_encode_decoder.py app/tools/newtool/new_tool.py"
+	echo "cp app/views/base64_encoder_widget.py app/views/newtool_widget.py"
+	echo "mkdir -vp codegen/newtool"
+
 .PHONY: help
 .DEFAULT_GOAL := setup
 

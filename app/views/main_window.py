@@ -12,7 +12,7 @@ from app.controllers import (
     CodeGenController,
     ConfigController,
     ShortcutController,
-    ScratchPadController
+    ScratchPadController,
 )
 from app.generated.MainWindow_ui import Ui_MainWindow
 from app.settings.app_settings import app

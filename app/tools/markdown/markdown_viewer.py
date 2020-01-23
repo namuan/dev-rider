@@ -6,10 +6,7 @@ from app.views.markdown_viewer_widget import MarkdownViewerWidget
 
 class MarkdownViewer(ToolPlugin):
     def __init__(self):
-        super().__init__(
-            name="Markdown Viewer",
-            widget_class=MarkdownViewerWidget
-        )
+        super().__init__(name="Markdown Viewer", widget_class=MarkdownViewerWidget)
 
     def bind_events(self):
         self.view.btn_render_html.pressed.connect(self.on_render_html)
