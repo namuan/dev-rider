@@ -13,7 +13,12 @@ release: ## Step to prepare a new release
 	echo "Instructions to prepare release"
 	echo "Repo: dev-rider: Increment version in app/__init__.py"
 	echo "Repo: dev-rider: Increment version in .travis.yml"
-	echo "Commit - Preparing Release 0.2.0"
+	echo "Commit - Preparing Release x.x.x"
+	echo "Repo: dev-rider-osx: Increment version in .travis.yml"
+	echo "Commit - Release x.x.x - MacOS"
+	echo "Repo: dev-rider-win: Increment version in .appveyor.yml"
+	echo "Commit - Release x.x.x - Windows"
+	echo "Repo: dev-rider: Update Download Links in README.md"
 
 venv: ## Load virtualenv
 	source venv/bin/activate

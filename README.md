@@ -8,6 +8,17 @@ And then there is also a huge problem with privacy and leaking any private data 
 
 ![DevRider Cover Image](docs/images/devrider-intro-demo.gif)
 
+#### Downloads
+
+Downloads are currently available for MacOS and Windows.
+Linux package [coming soon](https://github.com/namuan/dev-rider/issues/6) but it should be simple to run from source.
+
+[Mac OS App](https://github.com/namuan/dev-rider-osx/releases/download/0.2.0/devrider-0.2.0.zip)
+
+[Windows App](https://github.com/namuan/dev-rider-win/releases/download/0.2.0/devrider-0.2.0.zip)
+
+[Linux from Source](docs/contributing.md)
+
 #### Features
 
 🚀 No Ads, Lean, Open Source
