@@ -11,6 +11,9 @@ setup: ## Setup virtual environment and install dependencies
 
 release: ## Step to prepare a new release
 	echo "Instructions to prepare release"
+	echo "Repo: dev-rider: Increment version in app/__init__.py"
+	echo "Repo: dev-rider: Increment version in .travis.yml"
+	echo "Commit - Preparing Release 0.2.0"
 
 venv: ## Load virtualenv
 	source venv/bin/activate
