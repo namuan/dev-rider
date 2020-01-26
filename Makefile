@@ -19,9 +19,7 @@ release: ## Step to prepare a new release
 	echo "Repo: dev-rider-win: Increment version in .appveyor.yml"
 	echo "Commit - Release x.x.x - Windows"
 	echo "Repo: dev-rider: Update Download Links in README.md"
-
-venv: ## Load virtualenv
-	source venv/bin/activate
+	echo "Repo: deskriders.dev: Update Project Page with Download Links"
 
 clean-pyc: ## remove Python file artifacts
 	find . -name '*.pyc' -exec rm -f {} +
@@ -52,7 +50,7 @@ package: clean ## Rebuilds venv and packages app
 uic: res ## Converts ui files to python
 	for i in `ls resources/views/*.ui`; do FNAME=`basename $${i} ".ui"`; ./venv/bin/pyuic5 $${i} > "app/generated/$${FNAME}_ui.py"; done
 
-res: venv ## Generates and compresses resource file
+res: ## Generates and compresses resource file
 	./venv/bin/pyrcc5 -compress 9 -o app/generated/resources_rc.py resources/resources.qrc
 
 run: ## Runs the application
