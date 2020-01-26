@@ -35,7 +35,7 @@ Linux package [coming soon](https://github.com/namuan/dev-rider/issues/6) but it
 
 🚀 Markdown Viewer
 
-🚀 JSON Viewer/Formatter/Minifier
+🚀 JSON Viewer/Formatter/Minifier [Demo](docs/features/json-viewer.md)
 
 #### Getting started
 
