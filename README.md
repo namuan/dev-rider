@@ -6,8 +6,6 @@ And then there is also a huge problem with privacy and leaking any private data 
 
 [DevRider](https://github.com/namuan/dev-rider) is an attempt to provide a desktop tool which includes a shell and addins for various utilities.
 
-![DevRider Cover Image](docs/images/devrider-intro-demo.gif)
-
 #### Downloads
 
 Downloads are currently available for MacOS and Windows.
@@ -18,6 +16,8 @@ Linux package [coming soon](https://github.com/namuan/dev-rider/issues/6) but it
 [Windows App](https://github.com/namuan/dev-rider-win/releases/download/0.2.0/devrider-0.2.0.zip)
 
 [Linux from Source](docs/contributing.md)
+
+![DevRider Cover Image](docs/images/devrider-intro-demo.gif)
 
 #### Features
 
