@@ -92,7 +92,7 @@ Hello DevRider. This project is amazing...
     </widget>
    </item>
    <item>
-    <widget class="QPlainTextEdit" name="txt_target">
+    <widget class="QTextEdit" name="txt_target">
      <property name="readOnly">
       <bool>true</bool>
      </property>

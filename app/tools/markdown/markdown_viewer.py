@@ -14,8 +14,7 @@ class MarkdownViewer(ToolPlugin):
 
     def on_render_html(self):
         markdown_html = self.md_to_html(self.view.txt_source.toPlainText())
-        self.view.txt_target.clear()
-        self.view.txt_target.appendHtml(markdown_html)
+        self.view.txt_target.setHtml(markdown_html)
 
     def on_raw_html(self):
         markdown_html = self.md_to_html(self.view.txt_source.toPlainText())

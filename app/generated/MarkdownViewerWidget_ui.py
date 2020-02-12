@@ -37,7 +37,7 @@ class Ui_MarkdownViewerWidget(object):
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem)
         self.horizontalLayout.addWidget(self.frame)
-        self.txt_target = QtWidgets.QPlainTextEdit(MarkdownViewerWidget)
+        self.txt_target = QtWidgets.QTextEdit(MarkdownViewerWidget)
         self.txt_target.setReadOnly(True)
         self.txt_target.setObjectName("txt_target")
         self.horizontalLayout.addWidget(self.txt_target)
