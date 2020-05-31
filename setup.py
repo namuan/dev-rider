@@ -24,7 +24,7 @@ class bdist_app(Command):
         pass
 
     def run(self):
-        check_call(['pyinstaller', '-y', 'app.spec'])
+        check_call(['./venv/bin/pyinstaller', '-y', 'app.spec'])
 
 
 cmdclass['bdist_app'] = bdist_app

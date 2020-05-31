@@ -2,13 +2,6 @@ export PROJECTNAME=$(shell basename "$(PWD)")
 
 .SILENT: ;               # no need for @
 
-setup: ## Setup virtual environment and install dependencies
-	echo "Run the following commands to install required dependencies"
-	echo "python3 -m venv venv"
-	echo "source venv/bin/activate"
-	echo "pip install -r requirements/dev.txt"
-	echo "Once everything is installed, 'make run' to run the application"
-
 release: ## Step to prepare a new release
 	echo "Instructions to prepare release"
 	echo "Repo: dev-rider: Increment version in app/__init__.py"
@@ -36,15 +29,17 @@ black: ## Runs black for code formatting
 lint: black ## Runs Flake8 for linting
 	flake8 app
 
-reset: ## Re-initiates virtualenv
+setup: clean ## Re-initiates virtualenv
 	rm -rf venv
 	python3 -m venv venv
 	./venv/bin/python3 -m pip install -r requirements/dev.txt
+	echo "Once everything is installed, 'make run' to run the application"
 
 deps: ## Reinstalls dependencies
 	./venv/bin/python3 -m pip install -r requirements/dev.txt
 
 package: clean ## Rebuilds venv and packages app
+	./venv/bin/python3 -m pip install -r requirements/build.txt
 	export PYTHONPATH=`pwd`:$PYTHONPATH && ./venv/bin/python3 setup.py bdist_app
 
 uic: res ## Converts ui files to python
@@ -54,7 +49,7 @@ res: ## Generates and compresses resource file
 	./venv/bin/pyrcc5 -compress 9 -o app/generated/resources_rc.py resources/resources.qrc
 
 run: ## Runs the application
-	export PYTHONPATH=`pwd`:$PYTHONPATH && python app/__main__.py
+	export PYTHONPATH=`pwd`:$PYTHONPATH && ./venv/bin/python3 app/__main__.py
 
 runapp: ## Runs the packaged application
 	./dist/DevRider.app/Contents/MacOS/app

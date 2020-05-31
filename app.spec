@@ -39,9 +39,12 @@ coll = COLLECT(exe,
 app = BUNDLE(coll,
              name='{}.app'.format(app.__appname__),
              icon='resources/icons/app.icns',
-             bundle_identifier=None,
+             bundle_identifier='dev.deskriders.devrider',
              info_plist={
+                'CFBundleName': 'DevRider',
+                'CFBundleVersion': app.__version__,
                 'CFBundleShortVersionString': app.__version__,
+                'NSPrincipalClass': 'NSApplication',
                 'NSHighResolutionCapable': 'True'
                 }
              )
