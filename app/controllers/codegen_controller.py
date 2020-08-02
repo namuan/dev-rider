@@ -3,11 +3,16 @@ from pathlib import Path
 
 from PyQt5.QtGui import QTextCursor
 
-from app.core.languages import PY_LANG, JAVA_LANG, GO_LANG, syntax_highlighter
+from app.core.languages import PY_LANG, JAVA_LANG, GO_LANG, JS_LANG, syntax_highlighter
 from app.themes.theme_provider import pyg_styles
 from app.tools import tool_plugins
 
-language_main_file = {JAVA_LANG: "Main.java", PY_LANG: "main.py", GO_LANG: "main.go"}
+language_main_file = {
+    JAVA_LANG: "Main.java",
+    PY_LANG: "main.py",
+    GO_LANG: "main.go",
+    JS_LANG: "main.js"
+}
 
 
 class CodeGenController:
