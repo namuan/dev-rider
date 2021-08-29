@@ -35,10 +35,10 @@ setup: clean ## Re-initiates virtualenv
 	./venv/bin/python3 -m pip install -r requirements/dev.txt
 	echo "Once everything is installed, 'make run' to run the application"
 
-deps: ## Reinstalls dependencies
+deps: ## Reinstalls dependencies
 	./venv/bin/python3 -m pip install -r requirements/dev.txt
 
-package: clean ## Rebuilds venv and packages app
+package: clean ## Rebuilds venv and packages app
 	./venv/bin/python3 -m pip install -r requirements/build.txt
 	export PYTHONPATH=`pwd`:$PYTHONPATH && ./venv/bin/python3 setup.py bdist_app
 
@@ -57,7 +57,7 @@ runapp: ## Runs the packaged application
 icns: ## Generates icon files from svg
 	echo "Run ./mk-icns.sh resources/icons/app.svg app"
 
-newtool: ## Instructions for adding a new tool
+newtool: ## Instructions for adding a new tool
 	echo "cp resources/views/Base64EncoderWidget.ui resources/views/NewToolWidget.ui"
 	echo "mkdir -vp app/tools/newtool"
 	echo "cp app/tools/base64_encode_decoder.py app/tools/newtool/new_tool.py"
