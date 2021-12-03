@@ -26,3 +26,4 @@ rm -R "$output_name.iconset"
 mv "$output_name".icns resources/icons/
 
 $inkscape --export-filename "$PWD/resources/images/${output_name}.png" -w 512 -h 512 "$svg_file"
+$inkscape --export-filename "$PWD/resources/images/${output_name}-logo.png" -w 100 -h 80 "$svg_file"
