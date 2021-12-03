@@ -42,6 +42,9 @@ package: clean ## Rebuilds venv and packages app
 	./venv/bin/python3 -m pip install -r requirements/build.txt
 	export PYTHONPATH=`pwd`:$PYTHONPATH && ./venv/bin/python3 setup.py bdist_app
 
+install-macosx: package ## Installs application in users Application folder
+	./scripts/install-macosx.sh devrider.app
+
 uic: res ## Converts ui files to python
 	for i in `ls resources/views/*.ui`; do FNAME=`basename $${i} ".ui"`; ./venv/bin/pyuic5 $${i} > "app/generated/$${FNAME}_ui.py"; done
 
